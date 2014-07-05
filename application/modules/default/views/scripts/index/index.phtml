@@ -1,0 +1,81 @@
+<script language="javascript" type="text/javascript">
+$(function() {
+	$("#home").addClass('cur');
+});
+</script>
+<script type="text/javascript" src="js/g.script.js"></script>
+<script type="text/javascript" src="js/g.jquery.easing.js"></script>
+<div class="leftcol">
+        	<?php echo $this->partial('index/boxcate.phtml')?>
+            <?php echo $this->partial('index/boxnews.phtml')?>
+            <?php echo $this->partial('index/boxadv.phtml')?>
+        </div><!--e: div.leftcol-->
+        <div class="maincol">
+        	<div class="banner-support clearfix">
+                <div class="banner">
+					<div id="jslidernews2" class="lof-slidecontent" style="width:541px; height:251px;">
+                         <!-- MAIN CONTENT -->
+                          <div class="main-slider-content">
+                            <ul class="sliders-wrap-inner">
+                            <?php $Banner_Middle = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'1'));?>
+                          <?php foreach ($Banner_Middle as $Bander){ ?>
+                                <li><img src="<?php echo $Bander->getThumbImage()?>" /></li>
+                                <?php }?>
+                                
+                            </ul> 
+                          </div>
+                          
+                          <div class="navigator-content">
+                              <div class="navigator-wrapper">
+                                    <ul class="navigator-wrap-inner">
+                                        <li><span>1</span></li>
+                                        <li><span>2</span></li>
+                                    </ul>
+                              </div>
+                         </div>
+                     </div>       
+                	<!-- e: slide -->
+				</div>
+            <?php echo $this->partial('index/boxhotline.phtml')?>
+                   </div><!--@banner-support-->
+            <div class="folder">
+            	<div class="head">
+                	<h1 class="corner-top"><a class="corner-top" href="san-pham.html">Sản phẩm mới</a></h1>
+                </div>
+                <ul class="list">
+                <?php foreach ($this->Products as $Product):?>
+                	<li><div class="outer">
+                    	<h4 class="titlelink"><a href="<?php echo $Product->getLink()?>"><?php echo $Product->title?></a></h4>
+                    	<p class="imgproduct"><a href="<?php echo $Product->getLink()?>"><img src="<?php echo $Product->getThumbImage()?>" /></a></p>
+                        <p class="price">Giá bán: <?php echo number_format($Product->price)?> vnđ</p>
+                        <p class="button1"><a href="<?php echo $Product->getLink()?>">Chi tiết</a></p>
+                       </div> 
+                    </li>
+                   <?php endforeach;?> 
+                	
+                </ul>
+                
+                
+            </div><!--@folder-->
+        </div><!--e: div.maincol-->
+		
+  <script type="text/javascript">
+
+	var $obj = $('#jslidernews2').lofJSidernews( {
+		direction:'opacity',
+		interval : 4000,
+		easing			: 'easeInOutExpo',
+		duration		: 1200,
+		auto		 	: false,
+		maxItemDisplay  : 4,
+		navPosition     : 'horizontal', // horizontal
+		navigatorHeight : null,
+		navigatorWidth  : null,
+		mainWidth		:541,
+		isPreloaded		:false,
+		buttons			: {
+			previous:$('#jslidernews2 .button-previous') ,	
+			next:$('#jslidernews2 .button-next') 
+		}
+	} );	
+</script>

@@ -1,0 +1,23 @@
+
+<div class="support corner-all">
+	<div class="head">
+		<h3 class="corner-bottom"><span class="corner-bottom">Tư vấn bán hàng</span></h3>
+	</div>
+	<div class="hotline">
+		<label>Hotline:</label>
+		<cite><?php echo Zend_Registry::get('Setting')->HOTLINE?></cite>
+	</div><!--//hotline-->
+	<div class="phone">
+		<label>Điện thoại:</label>
+		<cite><?php echo Zend_Registry::get('Setting')->PHONE?></cite>
+	</div><!--//phone-->
+	<div class="status-online">
+		<a href="ymsgr:sendim?<?php echo Zend_Registry::get('Setting')->YAHOO?>">
+			<img border="0" alt="Yahoo!Messenger" src="http://opi.yahoo.com/online?u=<?php echo Zend_Registry::get('Setting')->YAHOO?>&m=g&t=2">
+		</a>
+	</div>
+	<!--div class="status-online"><span>Online</span></div-->
+	<p class="text">Hãy gọi cho chúng tôi<br />để được tư vấn tốt nhất</p>
+</div><!--//support-->
+
+	 

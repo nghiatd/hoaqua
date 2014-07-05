@@ -1,0 +1,58 @@
+.pagebook{background:#f9f7ec; padding-top:12px; font-family:Arial, Helvetica, sans-serif}
+#page{width:998px; margin:0 auto; border:1px solid #cccbc1; background:#fff; box-shadow:0 1px 6px #cccbc1; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; -khtml-border-radius: 5px;}
+.footerbook{text-align:center; padding:12px 0}
+#headbook{height:115px}
+#headbook .logo{float:left; width:410px; display:block}
+#headbook .barstep{float:left; width:588px; display:block; padding-top:52px;}
+.barstep .steps{overflow:hidden; float:left; padding-top:5px;}
+.barstep .steps img{float:left; padding:4px 7px 0 0}
+.barstep .steps .text{float:left; color:#999999; font-size:14px;} 
+.barstep .steps-finish .text{color:#333 !important}
+.barstep .steps-arrow{float:left; padding:0 35px;}
+
+#main{background:url(../images/bgr-gradient.gif) repeat-x 0 0; padding:50px 15px 25px 15px}
+.bookleft{float:left; width:386px; display:block;}
+.bookright{float:right; width:567px; display:block;}
+
+.block1, .block2{border:1px solid #cccccc}
+.title1{font-weight:bold; padding:5px 15px; border-bottom:1px solid #cccccc}
+.options, .options li{list-style:none}
+.options li{padding:10px 7px}
+.options li .text-italic{font-style:italic; padding-left:17px; color:#666666}
+.options li address{padding-top:7px;}
+
+.infor-customer{padding:10px 0 0 17px}
+.infor-customer .title2{background:url(../images/icon/icon-person.gif) no-repeat 0 0; padding-left:18px; color:#666666; font-weight:bold; margin-bottom:5px;}
+.infor-customer td{padding:3px 2px}
+.infor-customer td .input-text{padding:3px 4px; height:18px; border:1px solid #ccc; width:195px; font-weight:bold; color:#333; font-family:Arial, Helvetica, sans-serif}
+.infor-customer td select{border:1px solid #ccc; padding:1px; font-weight:bold; font-family:Arial, Helvetica, sans-serif}
+
+.block2 .content{padding:20px 10px}
+.table-detailbook td{padding:4px}
+.clrliam{color:#006600}
+.font11px{font-size:11px}
+.price16{font-size:16px; color:#e63331}
+.discount-percent{background:#f5ef8c; padding:2px; text-align:center}
+
+.total{border-top:2px solid #cccccc; margin-top:20px; padding-top:15px;}
+.total .left{float:left; width:200px; display:block}
+.total .right{float:left; width:345px; display:block}
+.remarks{font-style:italic; color:#666666; font-size:11px}
+
+.ui-button{padding-top:15px}
+.ui-button input.ui-button-continue{background:url(../images/submit.gif) no-repeat; width:132px; height:37px; color:#fff; font-size:18px; padding:0 0 4px 10px; border:0; cursor:pointer; text-align:left}
+.ui-button input.ui-button-back{background:url(../images/submit-back.gif) no-repeat; width:132px; height:37px; color:#666; font-size:18px; padding:0 0 4px 10px; border:0; cursor:pointer; text-align:left}
+
+.atm a{float:left; display:block; margin:10px 7px 0 7px;}
+h3.complete{text-align:center; color:#009900; font-size:17px; font-weight:normal}
+.text-complete{padding:25px 90px; border-bottom:1px solid #cccccc}
+.backhome{display:inline-block; background:url(../images/backhome.gif) no-repeat; width:155px; height:37px; color:#fff; font-size:18px; padding-left:15px; line-height:37px; text-align:left}
+.backhome:hover{text-decoration:none}
+
+.method{padding:10px 7px}
+.method li{padding:0 0 0 29px; margin-bottom:7px; list-style:none}
+.method li a{color:#000; font-weight:bold}
+.method li.method-address{background:url(../images/icon/icon-10.gif) no-repeat 0 3px}
+.method li.method-card{background:url(../images/icon/icon-11.gif) no-repeat 0 0}
+
+

@@ -1,0 +1,9 @@
+
+<div class="adv">
+<?php $Quang_cao = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'5'),Zend_Registry::get ( 'Setting')->Quang_cao_trang_chu);?>
+<?php if($Quang_cao){?>
+	<?php foreach($Quang_cao as $adv){?>
+	<a href="<?php echo $adv->link ?>" target="_blank" title="<?php echo $adv->title ?>"><img src="<?php echo $adv->getThumbImage()?>" alt="<?php echo $adv->title ?>"/></a>
+	<?php }?>
+<?php }?>
+</div>

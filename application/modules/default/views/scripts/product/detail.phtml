@@ -1,0 +1,124 @@
+<script language="javascript" type="text/javascript" src="js/g.jquery.easing.js"></script>
+<script language="javascript" type="text/javascript" src="js/g.script.js"></script>
+
+    	<div class="leftcol">
+        	<?php echo $this->partial('index/boxcate.phtml',array('categories_id'=>$this->Cate->id))?>
+           <?php echo $this->partial('index/boxhotline.phtml')?>
+           <?php $Quangcao = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'4'));?>
+		   <a href="<?php echo $Quangcao[0]->link ?>" target="_blank" title="<?php echo $Quangcao[0]->title ?>"><img src="<?php echo $Quangcao[0]->getThumbImage() ?>" alt="<?php echo $Quangcao[0]->title ?>"/></a>
+        </div><!--e: div.leftcol-->
+    	<div class="maincol">
+    	<?php $Bander = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'3'));?>
+    	<div style="margin-bottom:12px" class="slideshow"><img src="<?php echo $Bander[0]->getThumbImage() ?>"></div>
+        	<div class="details">
+            	<h1><?php echo $this->Product->title?></h1>
+                <div class="rowintro">
+                	<table border="0" width="100%" cellspacing="0" cellpadding="0">
+                        <tbody><tr>
+                        	<td width="337" valign="top">
+                        			<!--<img height="250" width="331" src="<?php echo $this->Product->getThumbImage()?>" class="bigimage"><br />-->
+								<div style="border:1px solid #c1c6c9">
+                                     <div id="jslidernews1" class="lof-slidecontent" style="width:400px; height:470px;">
+									 <!-- MAIN CONTENT --> 
+										  <div class="main-slider-content">
+											<ul class="sliders-wrap-inner">
+											<?php $Images = $this->Product->getImages();
+                                       				
+                                        			if($Images):
+                                        			?>
+                                        			<?php foreach($Images as $image): ?>
+                                           			<li><img src="uploads/product/<?php echo $this->Product->id?>/<?php echo $image['file']?>" title="" width="400" height="400"></li>
+                                         			<?php endforeach;?>
+                                         			<?php endif?>
+											  
+											</ul>  	
+										  </div>
+										<div class="navigator-content">
+										  <div class="button-previous">Previous</div>
+										  <div class="navigator-content-thumbs">
+											  <div class="navigator-wrapper">
+													<ul class="navigator-wrap-inner">
+													 <?php $Images = $this->Product->getImages();
+                                        				if($Images):
+                                        				?>
+                                        				<?php foreach($Images as $image): ?>
+                                           				<li><img src="uploads/product/<?php echo $this->Product->id?>/<?php echo $image['file']?>" title="" ></li>
+                                         				<?php endforeach;?>
+                                         				<?php endif?>
+													</ul>
+											  </div>
+										  </div>
+										  <div class="button-next">Next</div>
+										</div>  
+									 </div> 
+									  <!-- END SLIDE --> 
+								</div> 
+  <script type="text/javascript">
+
+	var $obj = $('#jslidernews1').lofJSidernews( {
+		direction:'opacity',
+		interval : 4000,
+		easing			: 'easeInOutExpo',
+		duration		: 1200,
+		auto		 	: false,
+		maxItemDisplay  : 3,
+		navPosition     : 'horizontal', // horizontal
+		navigatorHeight : 47,
+		navigatorWidth  : 93,
+		mainWidth:400,
+		buttons			: {
+			previous:$('#jslidernews1 .button-previous') ,	
+			next:$('#jslidernews1 .button-next') 
+		}
+	} );
+</script>   
+                            </td>
+                            <td valign="top">
+                                <div class="infor">
+                                    <p><b>Dịch vụ:</b> <?php echo $this->Product->warranty?></p>
+                                    <p><b>Nhà cung cấp:</b> <?php echo $this->Product->maker?></p>
+                                    <p><b>Xuất xứ:</b> <?php echo $this->Product->origin?></p>
+                                    <p><b>Phí vận chuyển:</b> <?php echo $this->Product->power?></p>
+                                    <p class="price">Giá: <?php echo number_format($this->Product->price)?> VNĐ</p>
+                                    <div class="bgrlightblue corner-all">
+                                        <p class="contactphone">Đặt hàng qua điện thoại: <label class="lb-phone"><?php echo Zend_Registry::get('Setting')->HOTLINE?></label></p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div><!--//rowintro-->
+                <div class="description">
+                	<div class="description-head clearfix"><h3 class="corner-top">Mô tả chi tiết</h3></div>
+                    <div class="available">
+                    	<?php echo $this->Product->description?>
+                    </div><!--/available-->
+                </div><!--//description-->
+            </div><!--@details-->
+            <div class="otherproduct">
+            	<h3>Sản phẩm khác</h3>
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                	<tbody>
+                	<tr>
+                	<?php foreach ($this->ListPro as $key=>$Pro):?>
+                		<td width="<?php if($key%2==0):?>33%<?php else:?>34%<?php endif?>">
+                    		<p align="center" style="padding-bottom:9px"><b><a href="<?php echo $Pro->getLink()?>"><?php echo $Pro->title?></a></b></p>
+                    		<p align="center" style="padding-bottom:9px"><a href="<?php echo $Pro->getLink()?>"><img width="144" src="<?php echo $Pro->getThumbImage()?>"></a></p>
+                            <p align="center" style="padding-bottom:9px" class="price">Giá: <?php echo number_format($Pro->price)?> vnđ</p>
+                            <p align="center" class="button1"><a href="<?php echo $Pro->getLink()?>">Chi tiết</a></p>
+                    	</td>
+                    <?php endforeach;?>	
+                        
+                    </tr>
+                </tbody></table>
+                <div class="ClearBoth"></div>
+            </div><!--@otherproduct-->
+            
+        </div><!--e: div.maincol-->
+
+        
+         <script language="javascript" type="text/javascript">
+$(function() {
+	$("#product").addClass('cur');
+});
+</script>

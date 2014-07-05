@@ -1,0 +1,65 @@
+<a href="<?php echo $this->url(array('controller'=>'adv','action'=>'create','module'=>'admin'),'',true)?>"><input type="button" value="Create adv" ></input></a>
+<br/><br/>
+<div class="hastable">
+<?php /*
+<form action="" method="get">
+<table>
+	<thead>
+		<tr>
+			
+			<th>Vị trí</th>
+		</tr>
+	</thead>
+	<tr>
+		
+		<td>
+		<select name="location">
+		<option value="">--Select--</option>
+		<?php foreach (Ads::$Location as $key=>$type):?>
+			<option value="<?php echo $key?>" <?php if($key == $this->filter['location']):?> selected="selected" <?php endif;?>><?php echo $type?></option>
+		<?php endforeach;?>
+		</select>
+		<?php //echo $this->formSelect('location',$this->filter['location'],array('id'=>'s1'),Ads::$Location)?></td>
+		<td rowspan="2"><input type="submit" value="Tìm" /></td>
+	</tr>
+</table>
+</form>
+*/?>
+<form name="myform" class="pager-form" method="post" action="">
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Link</th>
+		
+			<th>Image</th>
+			<th>Location</th>
+			<th>Width / Height</th>
+			<th>Status</th>
+			<th width="115">Options</th>
+		</tr>
+	</thead>
+	<tbody>
+    <?php foreach($this->Adv as $adv):?>
+    <tr>
+    		<td><?php echo $adv->title?></td>
+			<td><?php echo $adv->link?></td>	
+			
+			<td><img alt="" src="uploads/<?php echo $adv->file?>"  height="100px"> </td>
+			<td><?php echo $adv->getLocation()?></td>
+			<td><?php echo $adv->width .' / ' . $adv->height?></td>
+			<td><?php echo ($adv->active)?'Yes':'No'?></td>
+			<td><a class="btn_no_text btn ui-state-default ui-corner-all tooltip"
+				href="<?php echo $this->url(array('controller'=>'adv','action'=>'edit','id'=>$adv->id))?>"><span
+				class="ui-icon ui-icon-wrench"></span></a> <a
+				href="<?php echo $this->url(array('controller'=>'adv','action'=>'delete','id'=>$adv->id))?>"
+				class="btn_no_text btn ui-state-default ui-corner-all tooltip"><span
+				class="ui-icon ui-icon-circle-close"></span></a>
+				</td>
+		</tr>
+    <?php endforeach;?>
+    </tbody>
+</table>
+</form>
+<?php echo $this->Pagination($this->Pager,$this->url().'?page={%page}',$_GET)?>	
+</div>

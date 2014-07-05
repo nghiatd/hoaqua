@@ -1,0 +1,56 @@
+    <?php if($this->error):?>
+    <div class="ui-widget">
+			<div class="ui-state-error ui-corner-all" style="padding: .7em;"> 
+				<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> 
+				<strong>Có lỗi:</strong><br/>
+				<div style="padding-left: 20px">
+				<?php foreach($this->error as $error){echo '- '.$error.'<br/>';}?>
+				</div>
+				</p>
+			</div>
+	</div>
+	<?php endif;?>
+
+<table>
+	<tr>
+		<td valign="top">
+			<form action="" method="post">
+				<div class="hastable">
+					<table>
+<?php /*
+	<tr>
+		<td>Danh mục</td>
+		<td><?php echo $this->formSelect('categories_id',$this->Content->categories_id,array(),Contents::$Categories)?></td>
+	</tr>*/?>
+	<tr>
+		<td>Tiêu đề bài viết</td>
+		<td><?php echo $this->formText('title',$this->Content->title,array('size'=>60 ))?></td>
+	</tr>
+	<tr>
+		<td>Nguồn</td>
+		<td><?php echo $this->formText('author',$this->Content->author,array('size'=>60 ))?></td>
+	</tr>
+	<tr>
+		<td>Trích dẫn</td>
+		<td><?php echo $this->formTextarea('description',$this->Content->description,array('rows'=>5,'class'=>'mceEditor'))?></td>
+	</tr>
+	<tr>
+		<td>Chi tiết</td>
+		<td><?php echo $this->formTextarea('detail',$this->Content->detail,array('rows'=>5,'class'=>'mceEditor'))?></td>
+	</tr>
+	<tr>
+		<td>Thể loại</td>
+		<td><?php echo $this->formSelect('categories_id',$this->Content->categories_id,'',array('Bài viết','Giới thiệu','Sản phẩm','Hướng dẫn mua hàng'))?></td>
+	</tr>
+
+	<tr><td>Trạng thái</td><td><?php echo $this->formSelect('status',$this->Content->status,'',array('Disable','Enable'))?></td></tr>
+		</table>
+		<input type="submit" value="Lưu lại" />
+	<input type="button" value="Quay lại"
+		onclick="javascript:history.back();" />
+	</div>
+	</form>
+	</td>
+	</tr>
+</table>
+

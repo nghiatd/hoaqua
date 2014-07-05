@@ -1,0 +1,41 @@
+
+    	<div class="leftcol">
+        	<?php echo $this->partial('index/boxcate.phtml',array('categories_id'=>$this->Categories->id))?>
+        	
+           <?php echo $this->partial('index/boxhotline.phtml')?>
+           <?php echo $this->partial('index/adv_sanpham.phtml')?>
+               <?php $Bander = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'3'));?>
+               <?php $Quangcao = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'4'));?>		
+        </div><!--e: div.leftcol-->
+    	<div class="maincol">
+        	<div style="margin-bottom:12px" class="slideshow"><img src="<?php echo $Bander[0]->getThumbImage() ?>"></div>
+            <div class="folder">
+            	<div class="head">
+                	<h1 class="corner-top"><span class="corner-top"><?php if($this->id):?><?php echo $this->Categories->title?><?php else:?>Sản phẩm<?php endif;?></span></h1>
+                </div>
+                <ul class="listproduct">
+                <?php foreach ($this->Products as $Product):?>
+                	<li class="clearfix">
+                    	<div class="left"><a href="<?php echo $Product->getLink()?>"><img src="<?php echo $Product->getThumbImage()?>"></a></div>
+                    	<div class="center">
+                        	<p class="nameproduct"><b><a href="<?php echo $Product->getLink()?>"><?php echo $Product->title?></a></b></p>
+                            <p class="price">Giá: <?php echo number_format($Product->price)?> vnđ</p>
+                        </div>
+                        <div class="right"><p class="button1"><a href="<?php echo $Product->getLink()?>">Chi tiết</a></p></div>
+                	</li>
+               	<?php endforeach;?> 	
+                   
+                </ul>
+                <div class="paging">
+                    <?php echo $this->Pagination($this->Pager,$this->url().'?page={%page}',$_GET)?>  
+                </div><!--@paging-->
+            </div><!--@folder-->
+            
+        </div><!--e: div.maincol-->
+
+
+<script language="javascript" type="text/javascript">
+$(function() {
+	$("#product").addClass('cur');
+});
+</script>

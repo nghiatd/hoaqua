@@ -1,0 +1,43 @@
+
+    	<div class="leftcol">
+            <?php echo $this->partial('index/boxcate.phtml')?>
+           <?php echo $this->partial('index/boxhotline.phtml')?>
+        </div><!--e: div.leftcol-->
+    	<div class="maincol">
+            <div class="boxnews">
+            	<div class="head"><h2 class="corner-top"><span class="corner-top"><?php echo ($this->News->categories_id)?'Giới thiệu':'Tin tức';?></span></h2></div>
+                <ul class="listnews">
+                	<li><p class="alink"><span><?php echo $this->News->title?> <label class="datepost"><?php echo date('d/m/Y',strtotime($this->News->created_date))?></label></span></p>
+                    	<div class="textnone">
+                        	<p class="normal"><?php echo $this->News->detail?></p>
+                        	<?php if($this->News->author):?>
+                            <p align="right" class="clr999"><i style="font-size:13px">Theo nguồn: <?php echo $this->News->author?></i></p>
+                            <?php endif;?>
+                        </div>
+                    </li>
+                </ul>
+                	<?php if($this->News->categories_id==0){?>
+	                	<div class="othernews">
+		                	<h3>Tin khác</h3>
+		                    <ul>
+		                    <?php foreach ($this->NewsList as $News):?>
+		                    	<li><span><a href="<?php echo $News->getLink('Tin tức')?>"><?php echo $News->title?></a> <label class="datepost">(<?php echo date('d/m/Y',strtotime($News->created_date))?>)</label></span></li>
+		                   <?php endforeach;?>
+	                    	</ul>
+	                     </div><!--//othernews-->
+	                     <script language="javascript" type="text/javascript">
+							$(function() {
+								$("#news").addClass('cur');
+							});	
+						</script>
+                    <?php }else{?>
+                    <script language="javascript" type="text/javascript">
+						$(function() {
+							$("#gioithieu").addClass('cur');
+						});	
+					</script>
+                    <?php }?>
+            </div><!--@boxnews-->
+            
+        </div><!--e: div.maincol-->
+  

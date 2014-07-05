@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php echo $this->headTitle(' - '.Zend_Registry::get ( 'Setting')->SEO_TITLE); ?>
+
+<?php echo $this->headMeta(); ?>
+ 
+
+
+<?php echo Zend_registry::get('Setting')->SEO_GWT ;?>
+<meta name="keyword" content="<?php echo Zend_registry::get('Setting')->WEBSITE_KEYWORD;?>" />
+
+
+<base href="<?php echo DOMAIN?>"/>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/g.script.js"></script>
+<script type="text/javascript" src="js/g.jquery.easing.js"></script>
+<script type="text/javascript">
+var DOMAIN_NAME = 'http://<?php echo $_SERVER['HTTP_HOST'].$this->baseUrl()?>';
+	
+</script>
+</head>
+
+<body>
+<div id="pagewidth" class="corner-all">
+	<div id="header">
+    	<div class="top clearfix">
+    	<?php $Top_bander = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'2'));?>
+    	<img src="<?php echo $Top_bander[0]->getThumbImage() ?>" alt="<?php echo $Top_bander[0]->title ?>" />
+    	<?php $Logo = Adv::getAllWithoutPager(array('active=?'=>1,'location=?'=>'0'));?>
+    		<a class="FloatLeft" href="<?php $Logo[0]->link ?>"><img src="<?php echo $Logo[0]->getThumbImage() ?>" /></a>
+            <div class="search">
+            <form action="tim-kiem.html" method="post">
+            	<table cellpadding="0" cellspacing="0" border="0">
+                	<tr><td><input type="text" class="inputsearch" value="Gõ từ khóa tìm kiếm" onfocus="if (this.value=='Gõ từ khóa tìm kiếm') this.value='';" onblur="if (this.value=='') this.value='Gõ từ khóa tìm kiếm';" name="keyword"/></td>
+                    	<td><input type="image" class="imgeearch" src="images/imgeearch.png" /></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+        </div><!--@top-->
+        <div class="navtop line">
+        	<ul><li><a href="." id="home">Trang chủ</a></li>
+            	<li><a href="gioi-thieu.html" id="gioithieu">Giới thiệu</a></li>
+                <li><a href="tin-tuc.html" id="news">Tin tức</a></li>
+                <li><a href="san-pham.html" id="product">Sản phẩm</a></li>
+                <li><a href="lien-he.html" id="contact">Liên hệ</a></li>
+            </ul>
+        </div><!--@navtop-->
+    </div><!--E: div#header-->
+    <div id="center"><div class="clearfix maincontent">
+    	<?php echo $this->layout()->content;?>
+    </div></div><!--E: div#center-->
+    <div id="footer">
+    	<div class="navbot">
+        	<a href=".">Trang chủ</a> | <a href="gioi-thieu.html">Giới thiệu</a> | <a href="tin-tuc.html">Tin tức</a> | <a href="san-pham.html">Sản phẩm</a> | <a href="lien-he.html">Liên hệ</a>
+        </div>
+        <div class="copyright clearfix">
+        	
+        	<span class="FloatLeft"><?php echo Zend_Registry::get('Setting')->FOOTER?>
+            </span>
+            <span class="FloatRight"><a href="http://hitech-solutions.vn" target="_blank" title="Powered by Hitech Solutions Co.,Ltd"><img style="margin-top:10px" alt="Powered by Q-web Basic Solution" src="images/q.gif" /></a></span>
+        </div>
+    </div><!--E: div#footer-->
+</div>
+<?php echo Zend_registry::get('Setting')->SEO_GA ;?>
+</body>
+</html>

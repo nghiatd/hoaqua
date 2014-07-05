@@ -1,0 +1,42 @@
+
+    	
+    	<div class="leftcol">
+        	   <?php echo $this->partial('index/boxcate.phtml')?>
+           <?php echo $this->partial('index/boxhotline.phtml')?>
+
+	         </div><!--e: div.leftcol-->
+    	<div class="maincol">
+        	<div class="introduction">
+            	<div class="background">
+                	<h1>Giới thiệu</h1>
+                	<br/>
+                                   <?php foreach ($this->News as $News):?>
+                	<?php if(count($this->News)>1){?>
+	                	<li><p class="alink"><span><a href="<?php echo $News->getLink('Giới thiệu')?>"><?php echo $News->title?></a> <label class="datepost">(<?php echo date('d/m/Y',strtotime($News->created_date))?>)</label></span></p>
+	                    	<div class="textnone"><?php echo $News->description?></div></li>
+                    <?php }else{?>
+                    
+                    	<ul class="listnews">
+		                	<li>   	<div class="textnone">
+		                        	<p class="normal"><?php echo $News->detail?></p>
+		                        	<?php if($News->author):?>
+		                            <p align="right" class="clr999"><i style="font-size:13px">Theo nguồn: <?php echo $News->author?></i></p>
+		                            <?php endif;?>
+		                        </div>
+		                    </li>
+		                </ul>
+		             
+                    <?php }?>
+                    
+                <?php endforeach;?>                        
+                </div>
+            </div><!--@introduction-->
+            
+        </div><!--e: div.maincol-->
+   
+        
+        <script type="text/javascript" language="javascript">
+$(function() {
+	$("#gioithieu").addClass('cur');
+});
+</script>   

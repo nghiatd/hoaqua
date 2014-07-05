@@ -1,0 +1,65 @@
+
+    	<div class="leftcol">
+        	<?php echo $this->partial('index/boxcate.phtml')?>
+           <?php echo $this->partial('index/boxhotline.phtml')?>
+		    <?php echo $this->partial('index/adv_sanpham.phtml')?>
+        </div><!--e: div.leftcol-->
+    	<div class="maincol">
+            <div class="boxnews">
+				<div class="head"><h2 class="corner-top"><span class="corner-top">Liên hệ</span></h2></div>
+                <div class="contact">
+                	<p class="dotted">Liên hệ với chúng tôi để được tư vấn tốt nhất</p>
+                    <div class="clearfix" style="padding-bottom:20px;">
+                    	<p class="addresscompany">
+							<?php echo Zend_Registry::get('Setting')->CONTACT?>
+                        </p>
+                        <div class="map">
+                             <input type="hidden" name="map" id="map" value="20.998400469884754,105.86730051047198,16" />
+                            <div id="map_canvas" style="border:1px solid black"></div>
+                        </div>
+                    </div>
+                    
+                    <form action="" method="post">
+                    <div class="frmcontact">
+                    	<table border="0" cellspacing="0" cellpadding="0">
+                        	<tbody>
+                        	<tr><td colspan="2"><b>Bạn có thắc mắc &amp; yêu cầu hãy gửi thư cho chúng tôi</b> (thông tin (<font style="color:red">*</font>) là bắt buộc)</td></tr>
+                            <tr>
+                            	<td colspan="2">
+                            		<span style="color: red; font-weight: bold;" >
+                    				<?php 
+                    					if(count($this->error)){
+                    						foreach ($this->error as $err){
+                    						echo $err.'<br>';
+                    						}
+                    					}
+                    			?></span>
+                            	</td>
+                            </tr>
+                            <tr><td width="230">Họ và tên bạn (<font style="color:red">*</font>)</td>
+                            	<td><input type="text" class="itextcontact" name="name"></td>
+                            </tr>
+                            <tr><td width="230">Địa chỉ email (<font style="color:red">*</font>)</td>
+                            	<td><input type="text" class="itextcontact" name="email"></td>
+                            </tr>
+                            <tr><td width="230">Nhập nội dung yêu cầu của bạn (<font style="color:red">*</font>)</td>
+                            	<td><textarea class="textareacontact" name="content"></textarea></td>
+                            </tr>
+                            <tr><td align="right" colspan="2"><input type="submit" value="Gửi thư" class="smSend"></td></tr>
+                        </tbody></table>
+                    </div>
+                    </form>
+                </div><!--//contact-->
+            </div><!--@boxnews-->
+            
+        </div><!--e: div.maincol-->
+ <script
+	src="http://maps.google.com/maps?file=api&amp;v=2&sensor=false&key=AIzaSyAnZ50JTnav6iRX8pUag7hrkvW8v4pInW8"
+	type="text/javascript"></script> 
+<script language="javascript" type="text/javascript" src="js/script.js"></script>	
+<script language="javascript" type="text/javascript">
+$(function() {
+	$("#contact").addClass('cur');
+	initializeGmapRegister($("#map"),438,215);
+});
+</script>

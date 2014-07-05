@@ -1,0 +1,68 @@
+
+	
+		<table >
+			<tr>
+				<td valign="top">
+				<form action="" method="post">
+				<div class="hastable">
+				<table>
+						<tr>
+							<td>Title</td>
+							<td colspan="3"><?php echo $this->formText('title',$_REQUEST['title'], array('style'=>'width:300px'))?></td>
+						</tr>
+						<tr>
+							<td>Description</td>
+							<td colspan="3"><?php echo $this->formText('description',$_REQUEST['description'], array('style'=>'width:300px'))?></td>
+						</tr>
+						<tr>
+							
+							<td>Link</td>							
+							<td colspan="3"><?php echo $this->formText('link',$_REQUEST['link'])?></td>
+						</tr>
+						<tr>
+							<td>Width</td>							
+							<td><?php echo $this->formText('width',$_REQUEST['width'])?></td>
+							<td>height</td>							
+							<td><?php echo $this->formText('height',$_REQUEST['height'])?></td>							
+						</tr>
+						<tr>
+							<td>File</td>							
+							<td><?php echo $this->formText('file',$_REQUEST['file'])?></td>
+							<td>Active</td>
+							<td><?php echo $this->formSelect('active',$_REQUEST['active'],'',array('Disable','Enable'))?></td>
+						</tr>
+						<tr>
+							<td>Location</td>
+							<td colspan="3"><?php echo $this->formSelect('location',$_REQUEST['location'],'',Adv::$Location)?></td>
+						</tr>
+						
+					</table>
+					<?php echo $this->formSubmit('submit','Save')?><a href="javascript:history.back();"><input type="button" value="Back"></input> </a>
+					</div>	
+					</form>
+					</td>
+					<td width="50%">
+					<div class="hastable">
+						<table>
+							<thead>
+								<tr>
+									<td>Files in library</td>					
+								</tr>
+							</thead>
+						<tbody style="overflow-y: auto; overflow-x: auto; height: 100%;">
+						<?php foreach($this->Adv as $file):?>
+							<tr>
+								<td>
+								<script>document.write(ParsedAdvHtml('/uploads/adv/<?php echo $file['name']?>','<?php echo $file['type']?>','','100%'));</script>
+								Link: <?php echo $this->formText ( '','adv/'.$file['name'],array('size'=>'52'))?>
+								</td>					
+							</tr>
+						<?php endforeach;?>
+						</tbody>
+						</table>
+						</div>
+					</td>
+	
+				</tr>			
+			</table>
+

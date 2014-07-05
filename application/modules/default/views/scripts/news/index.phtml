@@ -1,0 +1,29 @@
+<script language="javascript" type="text/javascript">
+$(function() {
+	$("#news").addClass('cur');
+});
+</script>
+
+    	<div class="leftcol">
+            <?php echo $this->partial('index/boxcate.phtml')?>
+           <?php echo $this->partial('index/boxhotline.phtml')?>
+           <?php echo $this->partial('index/adv_sanpham.phtml')?>
+        </div><!--e: div.leftcol-->
+    	<div class="maincol">
+            <div class="boxnews">
+            	<div class="head"><h2 class="corner-top"><span class="corner-top">Tin tức</span></h2></div>
+                <ul class="listnews">
+                <?php foreach ($this->News as $News):?>
+                	<li><p class="alink"><span><a href="<?php print_r( $News->getLink('Tin tức'));?>"><?php echo $News->title?></a> <label class="datepost"><?php echo date('d/m/Y',strtotime($News->created_date))?></label></span></p>
+                    	<div class="textnone"><?php echo $News->description?></div>
+                        <p class="button1"><a href="<?php echo $News->getLink('Tin tức')?>">Chi tiết</a></p>
+                    </li>
+                <?php endforeach;?>    
+                	
+                </ul>
+                <div class="paging">
+                   <?php echo $this->Pagination($this->Pager,$this->url().'?page={%page}',$_GET)?>                
+                </div><!--@paging-->
+            </div><!--@boxnews-->
+            
+        </div><!--e: div.maincol-->

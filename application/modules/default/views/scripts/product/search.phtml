@@ -1,0 +1,30 @@
+
+    	<div class="leftcol">
+        	<?php echo $this->partial('index/boxcate.phtml')?>
+           <?php echo $this->partial('index/boxhotline.phtml')?>
+        </div><!--e: div.leftcol-->
+    	<div class="maincol">
+       
+            <div class="folder">
+            	<div class="folder-head">
+                	<div class="title"><h2>Tìm kiếm</h2></div>
+                </div>
+                <ul class="listproduct">
+                <?php foreach ($this->Products as $Product):?>
+                	<li class="clearfix">
+                    	<div class="left"><a href="<?php echo $Product->getLink()?>"><img src="<?php echo $Product->getThumbImage()?>"></a></div>
+                    	<div class="center">
+                        	<p class="nameproduct"><b><a href="<?php echo $Product->getLink()?>"><?php echo $Product->title?></a></b></p>
+                            <p class="price">Giá: <?php echo number_format($Product->price)?> vnđ</p>
+                        </div>
+                        <div class="right"><p class="button1"><a href="<?php echo $Product->getLink()?>">Chi tiết</a></p></div>
+                	</li>
+               	<?php endforeach;?> 	
+                   
+                </ul>
+                <div class="paging">
+                    <?php echo $this->Pagination($this->Pager,$this->url().'?page={%page}',$_GET)?>                       
+                </div><!--@paging-->
+            </div><!--@folder-->
+            
+        </div><!--e: div.maincol-->

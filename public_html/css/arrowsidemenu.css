@@ -1,0 +1,65 @@
+.arrowsidemenu{
+	width: 187px; /*width of menu187*/
+}
+	
+.arrowsidemenu div a{ /*header bar links*/
+	font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+	display: block;
+	background: url(../images/arrowgreen.png) no-repeat right top;
+    height: 26px; /*Set to height of bg image-padding within link (ie: 32px - 4px - 4px)*/
+	padding: 0 15px 0 0;
+	line-height: 26px; /*Set line-height of bg image-padding within link (ie: 32px - 4px - 4px)*/
+	text-decoration: none;
+	text-align:right;
+	margin-left:4px;
+	border-bottom:1px solid #ecaa50;
+}
+	
+.arrowsidemenu div a:link, .arrowsidemenu div a:visited{
+	color: #8e2410;
+}
+
+.arrowsidemenu div a:hover{
+	background-position: 100% -26px;
+}
+
+.arrowsidemenu div.unselected a{ /*header that's currently not selected*/
+	color: #8e2410;
+}
+
+	
+.arrowsidemenu div.selected a{ /*header that's currently selected*/
+	color: #8e2410;
+	background-position: 100% -26px !important;
+}
+
+.arrowsidemenu ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 10px 4px;
+	background:url(../images/submenu.png) no-repeat right bottom
+}
+
+.arrowsidemenu ul li{
+	border-top: 1px solid #ecaa50;
+}
+
+
+.arrowsidemenu ul li a{ /*sub menu links*/
+	display: block;
+	font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	color: #3f2f05;
+	padding: 5px 0;
+	padding-right: 15px;
+	text-align:right;
+}
+
+.arrowsidemenu ul li a:hover{
+	text-decoration:underline;
+	color: #3f2f05;
+}
+
+.arrowsidemenu ul li a.subexpandable:hover{ /*hover state CSS for sub menu header*/
+	background: lightblue;
+}

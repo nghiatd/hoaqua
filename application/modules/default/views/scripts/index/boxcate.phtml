@@ -1,0 +1,14 @@
+<div class="category corner-top">
+	<div class="head corner-top"><span>Danh mục sản phẩm</span></div>
+	<ul>
+	<?php $Cates = ProductCategories::getAll(array('status=?'=>1));
+	foreach ($Cates as $Cate):
+	
+	?>
+		<li><a href="<?php echo $Cate->getLink()?>" <?php if($this->categories_id==$Cate->id):?> class="select" <?php endif;?>><?php echo $Cate->title?></a></li>
+	<?php endforeach;?> 	
+	   
+	</ul>
+</div><!--@category-->
+            
+            

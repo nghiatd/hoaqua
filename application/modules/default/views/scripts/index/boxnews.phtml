@@ -1,0 +1,10 @@
+<div class="block corner-all">
+	<h3>Tin tức</h3>
+	<ul>
+	<?php $Contents = Contents::getWithOutPage(array('id!=?'=>1),12);
+	foreach ($Contents as $Content):
+	?>
+		<li><a href="<?php echo $Content->getLink()?>"><?php echo $Content->title?></a></li>
+	<?php endforeach;?>	
+	</ul>
+</div><!--@block-->
